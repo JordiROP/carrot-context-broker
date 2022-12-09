@@ -1,9 +1,8 @@
 ThisBuild / version := "0.1.0-SNAPSHOT"
 
-ThisBuild / scalaVersion := "2.13.10"
+ThisBuild / scalaVersion := "2.13.8"
 
-val AkkaVersion = "2.7.0"
-val AkkaHttpVersion = "10.4.0"
+val http4sVersion = "0.23.16"
 
 lazy val root = (project in file("."))
   .settings(
@@ -12,12 +11,9 @@ lazy val root = (project in file("."))
   )
 
 libraryDependencies ++= Seq(
-  "com.typesafe.akka" %% "akka-actor-typed" % AkkaVersion,
-  "com.typesafe.akka" %% "akka-stream" % AkkaVersion,
-  "com.typesafe.akka" %% "akka-http" % AkkaHttpVersion,
-  "com.typesafe.akka" %% "akka-http-spray-json" % AkkaHttpVersion,
-  "com.typesafe.akka" %% "akka-http-core"  % AkkaHttpVersion,
-  "com.typesafe.akka" %% "akka-slf4j" % AkkaVersion,
-  "ch.qos.logback"    %  "logback-classic" % "1.4.5",
-  "org.mongodb.scala" %% "mongo-scala-driver" % "2.9.0"
+  "org.scalatest" %% "scalatest" % "3.2.14" % Test,
+  "org.http4s" %% "http4s-dsl" % http4sVersion,
+  "org.http4s" %% "http4s-ember-server" % http4sVersion,
+  "org.http4s" %% "http4s-ember-client" % http4sVersion,
+  "eu.timepit" %% "refined" % "0.10.1"
 )
