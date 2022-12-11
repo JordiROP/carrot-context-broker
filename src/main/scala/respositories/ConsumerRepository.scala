@@ -1,10 +1,13 @@
 package org.onru.carrotcb
 package respositories
 
-trait ConsumerRepository[F[_]] {
-  def retrieveEntity(id: String):
+import models.Entity
+import types.Id
+
+trait Repository {
+  def retrieveEntity(id: Id): Entity
 }
 
-class ConsumerRepository {
-
+class ConsumerRepository extends Repository {
+  override def retrieveEntity(id: Id): Entity = Entity(id, "a description")
 }
